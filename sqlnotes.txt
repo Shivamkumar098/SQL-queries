@@ -1,0 +1,111 @@
+SELECT *from employee_list(
+    SELECT employee_name from employee_list;
+
+)
+--update query
+update employee_list set employee_branch="SDE", employee_name="RS"  WHERE[employee_id=2];
+
+--rename table
+
+RENAME table employee_list TO student_list;
+
+-- alter tables
+
+ALTER TABLE employee_list
+ADD employee_age INT,
+ADD empolyee_profession varchar(20);
+
+--describe table
+
+describe employee_list;
+--rename column name
+
+ALTER TABLE employee_list
+CHANGE COLUMN employee_id to employee_branch INT ;
+
+--delete column 
+
+ALTER TABLE employee_list
+DROP COLUMN employee_age;
+-- foriegn key relationship
+
+Create table Orders(
+    OrderID INT NOT NULL,
+    OrderNumber int not null,
+    PersonID int,
+    primary key(OrderID),
+    CONSTRAINT fk_PersonOrder foreign key(PersonID) REFERENCES Person(PersonID)
+    
+);
+
+--Alter foreign key
+
+ALTER table Orders
+ADD foreign key(PersonID) REFERENCES Persons(PersonID)
+
+--drop foreign key
+
+Alter table Orders CONSTRAINT fk_PersonOrder
+
+
+--select
+
+select 1+1;
+select concat("Shivam", ' ' ,"kumar");
+ select NOW()
+
+ --column alias
+--select expression AS column_alias
+
+select concat("Shivam" ,' ',:kumar) AS fullname;
+
+--sort queries
+
+select 
+     fieled_names
+from 
+     table_name
+order by 
+      col1 [asc|desc],
+      col2[asc|desc];
+
+ex-
+
+SELECT jobTitle
+from employees
+ORDER BY jobTitle asc;
+
+--orderdetails table
+
+select
+    orderNumber,
+    oredrrLineNumber,
+    quantityOrdered * priceEach
+from
+    orderdetails
+    order by quantityOrdered * priceEach DESC;
+
+--or
+
+select
+    orderNumber,
+    oredrrLineNumber,
+    quantityOrdered * priceEach AS subtotal
+from
+    orderdetails
+    order by subtotal DESC;
+    
+
+
+    --like clause
+
+select firstName, lastName
+from
+    employees
+WHERE
+    lastName LIKE '%son'
+order by firstName;
+
+
+
+
